@@ -1,0 +1,52 @@
+@host = http://localhost:5160
+# Replace with tripId returned by Create trip.
+@tripId = 00000000-0000-0000-0000-000000000000
+
+### Create trip
+POST {{host}}/api/trips
+Content-Type: application/json
+
+{
+  "trainNumber": "743",
+  "departureStation": "Львів",
+  "arrivalStation": "Київ",
+  "departureTime": "2026-10-30T08:00:00+02:00",
+  "arrivalTime": "2026-10-30T14:00:00+02:00",
+  "platform": "1"
+}
+
+### Delay trip
+POST {{host}}/api/trips/{{tripId}}/delay
+Content-Type: application/json
+
+{
+  "delayMinutes": 15,
+  "reason": "Технічна несправність"
+}
+
+### Change platform
+POST {{host}}/api/trips/{{tripId}}/platform
+Content-Type: application/json
+
+{
+  "newPlatform": "3"
+}
+
+### Cancel trip
+POST {{host}}/api/trips/{{tripId}}/cancel
+Content-Type: application/json
+
+{
+  "reason": "Рейс скасовано диспетчером"
+}
+
+### Restore trip (no request body)
+POST {{host}}/api/trips/{{tripId}}/restore
+
+### Complete trip
+POST {{host}}/api/trips/{{tripId}}/complete
+Content-Type: application/json
+
+{
+  "actualArrivalTime": "2026-10-30T14:15:00+02:00"
+}
