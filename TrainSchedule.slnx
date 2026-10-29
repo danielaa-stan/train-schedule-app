@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TrainSchedule.Board.Consumer/TrainSchedule.Board.Consumer.csproj" />
+  <Project Path="TrainSchedule.Producer.Api/TrainSchedule.Producer.Api.csproj" />
+</Solution>

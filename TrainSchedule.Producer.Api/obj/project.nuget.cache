@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CQYkzIu8oj4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\uni\\7th semester\\SAD\\you-never-get-the-message\\TrainSchedule.Producer.Api\\TrainSchedule.Producer.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\rabbitmq.client\\7.2.2\\rabbitmq.client.7.2.2.nupkg.sha512"
+  ],
+  "logs": []
+}

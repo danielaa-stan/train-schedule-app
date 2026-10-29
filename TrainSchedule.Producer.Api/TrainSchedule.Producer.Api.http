@@ -1,0 +1,6 @@
+@TrainSchedule.Producer.Api_HostAddress = http://localhost:5160
+
+GET {{TrainSchedule.Producer.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
