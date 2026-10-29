@@ -5,7 +5,8 @@ public sealed record TripCreated(
     Guid TripId,
     DateTimeOffset OccurredAt,
     string TrainNumber,
-    string Route,
+    string DepartureStation,
+    string ArrivalStation,
     DateTimeOffset DepartureTime,
     DateTimeOffset ArrivalTime,
     string Platform) : IEvent;

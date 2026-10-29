@@ -9,7 +9,8 @@ public sealed class TripAggregate
     public Guid Id { get; private set; }
     public bool IsCreated { get; private set; }
     public string TrainNumber { get; private set; } = string.Empty;
-    public string Route { get; private set; } = string.Empty;
+    public string DepartureStation { get; private set; } = string.Empty;
+    public string ArrivalStation { get; private set; } = string.Empty;
     public DateTimeOffset DepartureTime { get; private set; }
     public DateTimeOffset ArrivalTime { get; private set; }
     public string Platform { get; private set; } = string.Empty;
@@ -30,7 +31,7 @@ public sealed class TripAggregate
         }
     }
 
-    public void Create(Guid tripId, string trainNumber, string route,
+    public void Create(Guid tripId, string trainNumber, string departureStation, string arrivalStation,
         DateTimeOffset departureTime, DateTimeOffset arrivalTime, string platform)
     {
         if (IsCreated)
@@ -44,7 +45,8 @@ public sealed class TripAggregate
         }
 
         ArgumentException.ThrowIfNullOrWhiteSpace(trainNumber);
-        ArgumentException.ThrowIfNullOrWhiteSpace(route);
+        ArgumentException.ThrowIfNullOrWhiteSpace(departureStation);
+        ArgumentException.ThrowIfNullOrWhiteSpace(arrivalStation);
         ArgumentException.ThrowIfNullOrWhiteSpace(platform);
 
         if (arrivalTime <= departureTime)
@@ -53,7 +55,7 @@ public sealed class TripAggregate
         }
 
         Raise(new TripCreated(Guid.NewGuid(), tripId, DateTimeOffset.UtcNow,
-            trainNumber, route, departureTime, arrivalTime, platform));
+            trainNumber, departureStation, arrivalStation, departureTime, arrivalTime, platform));
     }
 
     public void Delay(int delayMinutes, string reason)
@@ -158,7 +160,8 @@ public sealed class TripAggregate
             case TripCreated e:
                 Id = e.TripId;
                 TrainNumber = e.TrainNumber;
-                Route = e.Route;
+                DepartureStation = e.DepartureStation;
+                ArrivalStation = e.ArrivalStation;
                 DepartureTime = e.DepartureTime;
                 ArrivalTime = e.ArrivalTime;
                 Platform = e.Platform;
